@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from './components/Home';
+import  About from './components/About';
+import Header from './components/Header';
 
 
 function App() {
   return (
     <BrowserRouter>
+        <Header />
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -14,17 +18,8 @@ function App() {
   )
 }
 
-function Home() {
-    return (
-      <h1>Hello, React Router!</h1>
-    )
-  }
+
   
-  function About() {
-    return (
-      <h1>About page goes here! 🎉</h1>
-    )
-  }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
