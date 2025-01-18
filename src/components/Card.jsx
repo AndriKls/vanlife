@@ -1,16 +1,19 @@
+import { Link } from "react-router-dom"
+
 export default function Card(props) {
     
     return (
-    <div className="card">
-            <img src={props.img} alt="" />
-            <div className="card-content">
-                <h2 className="card-title">{props.title}r</h2>
-                <div className="card-price">
-                    <span className="card-badge">{props.tag}</span>
-                    <span className="cprice">${props.price}/day</span>
-                </div>
+        <div key={props.id} className="van-tile">
+        <Link to={`${props.id}`}>
+            <img src={props.img}/>
+            <div className="van-info">
+                <h3>{props.title}r</h3>
+                <p>${props.price}<span>/day</span></p>
             </div>
+            <i className={`van-type ${props.type} selected`}>{props.type}</i>
+        </Link>
         </div>
 
         )
 }
+    
