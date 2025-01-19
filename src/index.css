@@ -3,42 +3,41 @@
 }
 
 html, body {
-    background-color: #FFF7ED;
     margin: 0;
     padding: 0;
-    font-family: Inter, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centers content vertically */
+    background-color: #FFF7ED;
+    font-family: "Inter", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 header {
-    background-color: #FFF7ED;
-    padding: 30px;
-    max-width: 500px; /* Match the width of your content container */
-    margin: 0 auto;
-}
-
-nav {
+    height: 110px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    padding-block: 10px;
 }
 
-.header-title {
-    text-decoration: none;
+header .site-logo {
+    color: black;
+    margin-right: auto;
+    text-transform: uppercase;
     font-weight: 900;
-    font-size: 25.35px;
-    line-height: 40.27px;
-    color: #000000;
+    font-size: 25px;
 }
 
-.nav-links a {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 22.92px;
+header a {
     text-decoration: none;
     color: #4D4D4D;
-    margin-left: 20px;
+    font-weight: 600;
+    padding: 5px 20px;
 }
 
 header a:hover {
@@ -236,9 +235,9 @@ i[class*='van-type-'] {
     text-decoration: none;
 }
 
-.van-detail-container .back-button:visited {
+/* .van-detail-container .back-button:visited {
     
-}
+} */
 
 .van-detail-container .back-button span {
     text-decoration: underline;
@@ -278,4 +277,37 @@ i[class*='van-type-'] {
     background-color: #FF8C38;
     color: white;
     font-size: 1.125rem;
+}
+
+.host-nav {
+   margin-left: 20px;
+}
+
+.host-nav a {
+    text-decoration: none;
+    color: #4D4D4D;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22.92px;
+    margin-left: 20px;
+}
+.host-nav a:hover {
+    text-decoration: underline;
+    font-weight: 700;
+    line-height: 22.92px;
+    color: #161616;
+}
+
+.host-nav a.active-link {
+    text-decoration: underline;
+    font-weight: bold;
+    line-height: 22.92px;
+    color: #161616;
+}
+
+header nav a.active-link {
+    text-decoration: underline;
+    font-weight: bold;
+    line-height: 22.92px;
+    color: #161616;
 }

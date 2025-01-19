@@ -1,15 +1,17 @@
-import { Link } from "react-router-dom"
+import React from "react"
+import {  Link, NavLink } from "react-router-dom"
+
+import { getActiveClass } from "./HostLayout"
 
 export default function Header() {
     return (
-       <header>
+        <header>
+            <Link className="site-logo" to="/">#VanLife</Link>
             <nav>
-                    <Link className="header-title" to="/">#VANLIFE</Link>
-                <div className="nav-links">
-                    <Link to="/about">About</Link>
-                    <Link to="/vans">Vans</Link>
-                </div>
+                <NavLink to="/host" className={getActiveClass}>Host</NavLink>
+                <NavLink to="/about" className={getActiveClass}>About</NavLink>
+                <NavLink to="/vans" className={getActiveClass}>Vans</NavLink>
             </nav>
-       </header> 
+        </header>
     )
 }
