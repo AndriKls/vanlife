@@ -9,16 +9,16 @@ export default function HostLayout() {
   return (
     <>
       <nav className="host-nav">
-        <NavLink to="/host" className={getActiveClass} end>
+        <NavLink to="." className={getActiveClass} end>
           Dashboard
         </NavLink>
-        <NavLink to="/host/income" className={getActiveClass}>
+        <NavLink to="income" className={getActiveClass}>
           Income
         </NavLink>
-        <NavLink to="/host/vans" className={getActiveClass}>
+        <NavLink to="vans" className={getActiveClass}>
           Vans
         </NavLink>
-        <NavLink to="/host/reviews" className={getActiveClass}>
+        <NavLink to="reviews" className={getActiveClass}>
           Reviews
         </NavLink>
       </nav>

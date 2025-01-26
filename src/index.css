@@ -311,3 +311,129 @@ header nav a.active-link {
     line-height: 22.92px;
     color: #161616;
 }
+
+footer {
+    background-color: #161616;
+    color: #AAAAAA;
+    height: 74px;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    font-weight: 500;
+}
+
+.site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.host-van-container {
+    display: flex;
+    width: 494px;
+    height: 102px;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    margin-bottom: 15px;
+}
+
+.host-van-image-container img
+{
+    width: 65.88px;
+    height: 65.88px;
+    border-radius: 5px;
+    margin: 17px;
+}
+
+.host-van-list {
+    margin-left: 30px;
+}
+
+.host-van-info-container p {
+    margin: 5px;
+    color: #161616;
+}
+
+.hostvanname  {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.host-van-info-container {
+    margin-top: 20px;
+}
+
+.host-van-link-wrapper {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.host-van-detail-layout-container {
+    background-color: white;
+    padding: 24px;
+    margin: 30px 26px;
+}
+
+.host-van-detail {
+    display: flex;
+    align-items: center;
+}
+
+.host-van-detail > img {
+    height: 160px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.host-van-detail-info-text > h3 {
+    margin-top: 24px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.host-van-detail-info-text > h4 {
+    font-size: 20px;
+    margin-block: 0;
+}
+
+.host-van-detail-nav {
+    display: flex;
+    margin-block: 25px;
+}
+
+.host-van-detail-nav a {
+    text-decoration: none;
+    color: #4D4D4D;
+    font-weight: 500;
+    padding: 5px 20px;
+}
+
+.host-van-detail-nav a:first-of-type {
+    text-decoration: none;
+    color: #4D4D4D;
+    font-weight: 500;
+    padding: 5px 15px;
+    margin-left: -15px;
+}
+
+.host-van-detail-nav a:hover {
+    color: #161616;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.back-button {
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin-top: 60px;
+    margin-left: 26px;
+}
+
+.back-button span:hover {
+    text-decoration: underline;
+}
