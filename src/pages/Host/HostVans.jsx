@@ -1,39 +1,60 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export default function HostVans() {
-    const [myVans, setMyVans] = React.useState([])
+    const [myVans, setMyVans] = React.useState([]);
+    const [loading, setLoading] = React.useState(true);
+    const [error, setError] = React.useState(null);
+    const { t } = useLanguage();
 
     React.useEffect(() => {
-        fetch("/api/host/vans")
-        .then(res => res.json())
-        .then(data => setMyVans(data.vans))
+        async function loadVans() {
+            try {
+                const res = await fetch("/api/host/vans");
+                const data = await res.json();
+                setMyVans(data.vans);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        }
+        
+        loadVans();
     }, []);
 
     const vanElements = myVans.map((van) => {
         return (
-            
-            <Link to={`/host/vans/${van.id}`}
-            key={van.id} className="host-van-link-wrapper">
-            <div className="host-van-container" key={van.id}>
-                <div className="host-van-image-container">
-                    <img src={van.imageUrl} alt={van.name} />
+            <Link to={`${van.id}`} key={van.id} className="host-van-link-wrapper">
+                <div className="host-van-container">
+                    <div className="host-van-image-container">
+                        <img src={van.imageUrl} alt={van.name} />
+                    </div>
+                    <div className="host-van-info-container">
+                        <p className="hostvanname">{van.name}</p>
+                        <p>${van.price}{t.perDay}</p>
+                    </div>
                 </div>
-                <div className="host-van-info-container">
-                    <p className="hostvanname">{van.name}</p>
-                    <p>${van.price}/day</p>
-                </div>
-            </div>
             </Link>
         )
-    })
-    return (
-        <>
-        <div className="host-van-list">
-        <h1>Your listed vans</h1>
+    });
 
-            {vanElements}
+    if (loading) {
+        return <h2 className="loading">{t.loading}</h2>
+    }
+
+    if (error) {
+        return <h2 className="error">{t.errorLoading}</h2>
+    }
+
+    return (
+        <div className="host-van-list">
+            <h1>{t.yourListedVans}</h1>
+            {vanElements.length > 0 ? 
+                vanElements : 
+                <p className="no-vans">{t.noVansListed}</p>
+            }
         </div>
-        </>
     )
 }

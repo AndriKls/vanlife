@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from './pages/Home';
-import  About from './pages/About';
+import About from './pages/About';
 import Vans from './pages/Vans/Vans';
 import "./server"
 import VanDetail from './pages/Vans/VanDetail';
@@ -16,37 +16,39 @@ import HostVanDetail from './pages/Host/HostVanDetail';
 import HostVanPhotos from './pages/Host/HostVanPhotos';
 import HostVanPricing from './pages/Host/HostVanPricing'
 import HostVanInfo from './pages/Host/HostVanInfo'
+import { LanguageProvider } from './contexts/LanguageContext';
 
 
 function App() {
   return (
-    <BrowserRouter>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/vans" element={<Vans />} />
-            <Route path="/vans/:id" element={<VanDetail />} />
+    <LanguageProvider>
+      <BrowserRouter>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path='*' element={<h1>404 Not Found</h1>} />
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/vans" element={<Vans />} />
+              <Route path="/vans/:id" element={<VanDetail />} />
 
-            <Route path="host" element={<HostLayout />}>
-              <Route index element={<Dashboard />}/>
-              <Route path="income" element={<Income />} />
-              <Route path="reviews" element={<Reviews />} />
-              <Route path="vans" element={<HostVans />} />
-              <Route path="vans/:id" element={<HostVanDetail />}>
-                <Route index element={<HostVanInfo />}/>
-                <Route path="pricing" element={<HostVanPricing />}/>
-                <Route path="photos" element={<HostVanPhotos />}/>
+              <Route path="host" element={<HostLayout />}>
+                <Route index element={<Dashboard />}/>
+                <Route path="income" element={<Income />} />
+                <Route path="reviews" element={<Reviews />} />
+                <Route path="vans" element={<HostVans />} />
+                <Route path="vans/:id" element={<HostVanDetail />}>
+                  <Route index element={<HostVanInfo />}/>
+                  <Route path="pricing" element={<HostVanPricing />}/>
+                  <Route path="photos" element={<HostVanPhotos />}/>
+                </Route>
               </Route>
             </Route>
-          </Route>
-        </Routes>
-    </BrowserRouter>
+          </Routes>
+      </BrowserRouter>
+    </LanguageProvider>
   )
 }
 
-
-  
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
